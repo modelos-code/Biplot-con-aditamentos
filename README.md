@@ -184,10 +184,18 @@ legend(locator(n=1),names(ardeche$col.blocks),lty=1, lwd=1.3, pch=NULL,
 ```
 
 Atención: La segunda sentencia coloca la leyenda en el gráfico mediante la función locator(), por lo cual al ejecutarla y pararse sobre la ventana de gráfico, el cursor cambia a una cruz, y al hacer click con el ratón (mouse) fijará en esa posición el extremo superior izquierdo de la leyenda, y no devolverá el control de R hasta que no se haya procedido a ubicar la leyenda. Si no queda bien ubicada la leyenda deberá re-intentar corriendo las dos sentencias nuevamente y/o modificando la longitud de los ejes con los argumentos xlim o ylim. 
-![Texto alternativo](imágenes%20biplot/figura%201.png)
+<p align="center">
+  <img src="imagenes%20biplot/figura%201.png" alt="Figura 1" width="500">
+</p>
 Figura Nº 1: Biplot del análisis de componentes principales de los datos de ardeche$tab.
-![Texto alternativo](imágenes%20biplot/figura%202.png)
+
+
+<p align="center">
+  <img src="imagenes%20biplot/figura%202.png" alt="Figura 2" width="500">
+</p>
 Figura Nº 2: Biplot del análisis de componentes principales de los datos de ardeche$tab, identificando con distintos colores, las fechas en que se realizaron las mediciones.
+
+
 Como en este conjunto de datos las filas también pueden agruparse por orden de la especie, podemos usar el argumento “colx” de nuestra función
 
 ```r
@@ -207,10 +215,20 @@ legend(locator(n=1),names(ardeche$col.blocks),lty=1, lwd=1.3, pch=NULL,
        col= 1:nlevels(ardeche$dat.fac), title="Fecha",cex=0.7)    
 
 ```
-![Texto alternativo](imágenes%20biplot/figura%203.png)
+
+
+<p align="center">
+  <img src="imagenes%20biplot/figura%203.png" alt="Figura 3" width="500">
+</p>
 Figura Nº 3: Biplot del análisis de componentes principales de los datos de ardeche$tab, identificando con distintos colores, el orden de cada especie.
-![Texto alternativo](imágenes%20biplot/figura%204.png)
+
+
+<p align="center">
+  <img src="imagenes%20biplot/figura%204.png" alt="Figura 4" width="500">
+</p>
 Figura Nº 4: Biplot del análisis de componentes principales de los datos de ardeche$tab, identificando con distintos colores, el orden de cada especie y la fecha de cada observación.
+
+
 Al ser el nombre de la informativo del orden de la especie la información es redundante, podemos usar el argumento pch.ind para limpiar la imagen.
 ```r
 biplot.col.prcomp(ardeche.pca, pch.ind=20,
@@ -235,10 +253,15 @@ legend(locator(n=1),names(ardeche$row.blocks),pch=20,
 abline(h=0, v=0, lty=2, col="gray")
 ```
 
-![Texto alternativo](imágenes%20biplot/figura%205.png)
+<p align="center">
+  <img src="imagenes%20biplot/figura%205.png" alt="Figura 5" width="500">
+</p>
 Figura Nº 5: Biplot del análisis de componentes principales de los datos de ardeche$tab, identificando con distintos colores, el orden de cada especie y la fecha de cada observación, pero identificando las distintas especies de cada orden sólo por un punto.
 
-![Texto alternativo](imágenes%20biplot/figura%206.png)
+
+<p align="center">
+  <img src="imagenes%20biplot/figura%206.png" alt="Figura 6" width="500">
+</p>
 Figura Nº 6: Biplot del análisis de componentes principales de los datos de ardeche$tab, identificando con distintos colores, el orden de cada especie y la fecha de cada observación, pero identificando las distintas especies de cada orden sólo por un punto de tamaño más adecuado e incorporando lineas de referencia en los ejes PC1=0 y PC2=0.
 
 # Gráficos Biplot en degrade
@@ -275,14 +298,22 @@ biplot.deg <- function(M,cent.=TRUE, scal.=TRUE,scale= 1,choices=c(1,2),
          title=paste("% de rep. ", variables),cex=0.7)   
 }
 ```
+
 Los argumentos de esta función son:
+
 M = Matriz de datos con individuos en las filas y variables en las columnas.
+
 cent. = Valor lógico que indica si debe centrase a la matriz por columnas,
-Matriz de datos con individuos en las filas y variables en las columnas.
+
 scal. = Valor lógico que indica si deben estandarizarse las por columnas,
+
 scale = Valor numérico entre 0 y 1, los individuos serán escalados por lamnda^(1-scale) y las variables por lamnda^scale. Donde lamnda son los valores singulares de M, es decir el desvío estándar explicado por cada eje principal. (Si Scale=1 se consigue la mejor representación de las variables, si scale=0 la mejor representación de los individuos, y si lamnda =0.5, se logra equilibrar la representación tanto de individuos como de variables)
+
 choices = vector numérico de dos coordenadas con ejes que se desea graficar.
+
 individuos, variables = Expresiones que indiquen que son los individuos y las variables respectivamente, en términos de la problemática en cuestión, por defecto usará “individuos” y “variables”. 
+
+
 Atención esta función colocará legendas en el gráfico a través de la función locator(), por lo tanto luego de correrla, deberá hacer dos click en la ventana de gráficos en los lugares donde desee que aparezca la esquina superior izquierda de cada leyenda. Si las leyendas taparan una parte importante del gráfico, entonces deberá volver a correr el biplot agregando los argumentos xlim, o ylim, con valores adecuados para dejar lugar para las leyendas.
 
 # Ejemplo: 
@@ -297,7 +328,9 @@ biplot.deg(ardeche$tab[28:43,30:35], scale=0.5,
                                              # e individuos (Fig.Nº 7).
 ```
 
-![Texto alternativo](imágenes%20biplot/figura%207.png)
+<p align="center">
+  <img src="imagenes%20biplot/figura%207.png" alt="Figura 7" width="500">
+</p>
 Figura Nº 7: Biplot del los datos de ardeche$tab, correspondientes a las variables observadas en la fecha “Julio de 1983” y de las especies del orden “Trichoptera”;  identificando con distinta intensidad de color el grado de representación de las variables y los individuos (con representación balanceada entre ambos). 
 
 Todos los análisis y gráficos de este documento fueron realizados en R, versión 3.1.0 (2014-04-10). R Core Team (2014). R: A language and environment for statistical computing. R Foundation for Statistical Computing, Vienna, Austria. URL http://www.R-project.org/.
