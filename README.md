@@ -160,12 +160,19 @@ data(ardeche)
 ```
 
 Vemos en la ayuda que “ardeche” es una lista con la cantidad de individuos identificados de varias especies de macroinvertebrados bentónicos en diferentes sitios y fechas. 
+
 En esta lista tenemos 6 elementos: 
-ardeche$tab es un archivo de datos con las 43 especies en las filas y 35 sitios y fechas en las columnas
-ardeche$col.blocks Es un vector con cantidad de columnas que se midieron en cada fecha y la identificación de la fecha: julio 1982, agosto 1982, noviembre 1982, febrero 1983, abril 1983 y julio 1983.
-ardeche$row.blocks es un vector con cuantas especies (filas hay en cada grupo ) y la identificación del grupo que define el orden de la especie.
-ardeche$dat.fac es  un vector factor de longitud  igual a la cantidad de columnas identificando a que fecha corresponde cada columna.
-ardeche$sta.fac es  un vector factor de longitud igual  a la cantidad de columnas identificando a que sitio corresponde cada columna.
+
+ardeche$tab es un archivo de datos con las 43 especies en las filas y 35 sitios y fechas en las columnas,
+
+ardeche$col.blocks Es un vector con cantidad de columnas que se midieron en cada fecha y la identificación de la fecha: julio 1982, agosto 1982, noviembre 1982, febrero 1983, abril 1983 y julio 1983,
+
+ardeche$row.blocks es un vector con cuantas especies (filas hay en cada grupo ) y la identificación del grupo que define el orden de la especie,
+
+ardeche$dat.fac es  un vector factor de longitud  igual a la cantidad de columnas identificando a que fecha corresponde cada columna,
+
+ardeche$sta.fac es  un vector factor de longitud igual  a la cantidad de columnas identificando a que sitio corresponde cada columna,
+
 ardeche$esp.fac es  un vector factor de longitud igual  a la cantidad de filas identificando a que Orden corresponde la especie de cada fila (Ephemeroptera, Plecoptera, Coleoptera, Trichoptera).
 
 ```r
@@ -175,7 +182,7 @@ biplot.col.prcomp(ardeche.pca)
 ```
 
 
-En ambos casos obtenemos el mismo biplot (Figura Nº1). Pero como en este conjunto de datos las columnas pueden agruparse por fechas,  por ejemplo,  podemos usar el argumento “coly” de nuestra función para identificar con colores dichas fechas.
+En ambos casos obtenemos el mismo biplot (Figura Nº1). Pero como en este conjunto de datos las columnas pueden agruparse por fechas,  por ejemplo,  podemos usar el argumento “coly” de nuestra función para identificar con colores dichas fechas, y obtener la Figura Nº2.
 
 ```r
 biplot.col.prcomp(ardeche.pca, coly=as.numeric(ardeche$dat.fac))
@@ -184,6 +191,7 @@ legend(locator(n=1),names(ardeche$col.blocks),lty=1, lwd=1.3, pch=NULL,
 ```
 
 Atención: La segunda sentencia coloca la leyenda en el gráfico mediante la función locator(), por lo cual al ejecutarla y pararse sobre la ventana de gráfico, el cursor cambia a una cruz, y al hacer click con el ratón (mouse) fijará en esa posición el extremo superior izquierdo de la leyenda, y no devolverá el control de R hasta que no se haya procedido a ubicar la leyenda. Si no queda bien ubicada la leyenda deberá re-intentar corriendo las dos sentencias nuevamente y/o modificando la longitud de los ejes con los argumentos xlim o ylim. 
+
 <p align="center">
   <img src="imagenes%20biplot/figura%201.png" alt="Figura 1" width="500">
 </p>
@@ -266,6 +274,7 @@ Figura Nº 6: Biplot del análisis de componentes principales de los datos de ar
 
 # Gráficos Biplot en degrade
 La calidad de representación de cada una de las variables y de cada uno de los individuos, en un plano de componentes principales, puede ser muy distinta, y es de vital importancia conocerla a la hora de interpretar el gráfico obtenido. Lo que se propone en esta representación, es utilizar tanto para los individuos como para las variables, una gama de colores que salen desde el blanco en el caso de tener 0% de representación en el plano que se este visualizando, hasta el color puro (rojo para las variables y negro para los individuos) en el caso de tener 100% de representación. Esto permite que al interpretar el gráfico aquellos individuos y/o variables que no este bien representados en el plano que se este mirando,  queden representados por colores muy claros y sea fácil evitar su interpretación, mientras que aquellos individuos o variables bien representados resalten por su color fuerte y sean el centro de la interpretación.
+
 La función biplot.deg se ejecuta directamente sobre la matriz de datos (con individuos en las filas y variables en las columnas.
 
 ```r
