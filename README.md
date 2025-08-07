@@ -1,5 +1,5 @@
 # Biplot-con-aditamentos
-La técnica Exploratiria multivariada de biplots, es de uso muy frecuente pero si existe variables clasificatorias entre los individuos o entre las variable esto no es fácil de incluir. Por otra parte no todos los individuos ni todas las variables quedan igalmente representadas en los planos graficados.
+La técnica gráfica exploratoria multivariada de "Biplots", es de uso muy frecuente pero si existe variables clasificatorias entre los individuos o entre las variable esto no es fácil de incluir. Por otra parte no todos los individuos ni todas las variables quedan igalmente representadas en los planos graficados.
 En este trabajo mostramos como a través de tipo de punto o colores, podemos mostrar variables clasificatorias en los individuos o variables, y a traves de degrade de colores mostrar el grado de representacion que tiene cada individuo y/o variable en el plano graficado.
 
 # Biplots con colores clasificando variables y/o individuos
